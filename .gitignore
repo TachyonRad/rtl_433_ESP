@@ -1,10 +1,4 @@
-compile_commands.json
-
 .pio
 .vscode
-/rtl_433
+/build
 
-tools/copy.list
-tools/devices.list
-tools/rtl_433_ESP.fragment
-example/OOK_Receiver/compile_commands.json

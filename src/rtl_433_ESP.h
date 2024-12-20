@@ -26,11 +26,13 @@
 #ifndef rtl_433_ESP_H
 #define rtl_433_ESP_H
 
+#include "options.h"
+
 #include <Arduino.h>
 
 #include <functional>
 
-#include "log.h"
+#include "rtl_433/log.h"
 #include "tools/aprintf.h"
 
 // ESP32 doesn't define ICACHE_RAM_ATTR
@@ -40,7 +42,7 @@
 
 // RadioLib Library setup
 
-#define RADIOLIB_LOW_LEVEL
+#define RADIOLIB_LOW_LEVEL (1)
 
 #include <RadioLib.h>
 

@@ -205,7 +205,7 @@ static int ikea_sparsnas_decode(r_device *decoder, bitbuffer_t *bitbuffer)
     decoder_logf(decoder, 2, __func__, "Received sensor id: %06lu", rcv_sensor_id);
 
     if (rcv_sensor_id != ikea_sparsnas_sensor_id) {
-        decoder_logf(decoder, 2, __func__, "Malformed package, or wrong sensor id. Received sensor id (%06lu) not the same as sender (%d)", rcv_sensor_id, ikea_sparsnas_sensor_id);
+        decoder_logf(decoder, 2, __func__, "Malformed package, or wrong sensor id. Received sensor id (%06lu) not the same as sender (%ld)", rcv_sensor_id, ikea_sparsnas_sensor_id);
     }
 
     if ((!ikea_sparsnas_sensor_id) || (rcv_sensor_id != ikea_sparsnas_sensor_id)) {

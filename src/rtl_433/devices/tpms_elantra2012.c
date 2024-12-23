@@ -73,7 +73,7 @@ static int tpms_elantra2012_decode(r_device *decoder, bitbuffer_t *bitbuffer, un
     int triggered     = (b[6] & 0x01) >> 0;
 
     char id_str[9];
-    snprintf(id_str, sizeof(id_str), "%08x", id);
+    snprintf(id_str, sizeof(id_str), "%08lx", id);
     char flags_str[3];
     snprintf(flags_str, sizeof(flags_str), "%x", flags);
 

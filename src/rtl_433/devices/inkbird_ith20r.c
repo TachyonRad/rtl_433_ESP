@@ -109,7 +109,7 @@ static int inkbird_ith20r_callback(r_device *decoder, bitbuffer_t *bitbuffer)
     float humidity = (msg[15] << 8 | msg[14]) * 0.1f;
     uint8_t word18 = msg[18];
 
-    decoder_logf(decoder, 1, __func__, "dword0-3= 0x%08X word5-6= 0x%04X byte18= 0x%02X", subtype, word56, word18);
+    decoder_logf(decoder, 1, __func__, "dword0-3= 0x%08lX word5-6= 0x%04X byte18= 0x%02X", subtype, word56, word18);
 
     /* clang-format off */
     data = data_make(

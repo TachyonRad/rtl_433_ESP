@@ -173,7 +173,7 @@ static int dsc_callback(r_device *decoder, bitbuffer_t *bitbuffer)
         crc = bytes[4];
 
         if (crc8le(bytes, DSC_CT_MSGLEN, 0xf5, 0x3d) != 0) {
-            decoder_logf(decoder, 1, __func__, "Contact bad CRC: %06X, Status: %02X, CRC: %02X",
+            decoder_logf(decoder, 1, __func__, "Contact bad CRC: %06lX, Status: %02X, CRC: %02X",
                         esn, status, crc);
             result = DECODE_FAIL_MIC;
             continue; // DECODE_FAIL_MIC
@@ -209,7 +209,7 @@ static int dsc_callback(r_device *decoder, bitbuffer_t *bitbuffer)
         char status_str[3];
         snprintf(status_str, sizeof(status_str), "%02x", status);
         char esn_str[7];
-        snprintf(esn_str, sizeof(esn_str), "%06x", esn);
+        snprintf(esn_str, sizeof(esn_str), "%06lx", esn);
 
         /* clang-format off */
         data = data_make(

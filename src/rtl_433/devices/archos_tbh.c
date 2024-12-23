@@ -126,7 +126,7 @@ static int archos_tbh_decode(r_device *decoder, bitbuffer_t *bitbuffer)
 
     if (type == 1) {
         // raw data
-        decoder_logf(decoder, 1, __func__, "raw data from ID: %08x", id);
+        decoder_logf(decoder, 1, __func__, "raw data from ID: %08lx", id);
 
         payload[4] = len - 4; //write len for crc (len - 4b ID)
 

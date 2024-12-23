@@ -353,11 +353,11 @@ static int secplus_v1_callback(r_device *decoder, bitbuffer_t *bitbuffer)
 
     // preformat unsigned int
     char rolling_str[16];
-    snprintf(rolling_str, sizeof(rolling_str), "%u", rolling);
+    snprintf(rolling_str, sizeof(rolling_str), "%lu", rolling);
 
     // preformat unsigned int
     char fixed_str[16]; // should be 10 chars max
-    snprintf(fixed_str, sizeof(fixed_str), "%u", fixed);
+    snprintf(fixed_str, sizeof(fixed_str), "%lu", fixed);
 
     // decoder_logf(decoder, 0, __func__,  "# Security+:  rolling=2320615320  fixed=1846948897  (id1=2 id0=0 switch=1 remote_id=68405514 button=left)");
     /* clang-format off */

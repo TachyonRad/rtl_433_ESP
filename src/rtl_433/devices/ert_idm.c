@@ -217,7 +217,7 @@ static int ert_idm_decode(r_device *decoder, bitbuffer_t *bitbuffer)
     decoder_logf_bitrow(decoder, 2, __func__, &b[21], 6 * 8, "PowerOutageFlags_str %s", PowerOutageFlags_str);
 
     LastConsumptionCount = ((uint32_t)b[27] << 24) | (b[28] << 16) | (b[29] << 8) | (b[30]);
-    decoder_logf_bitrow(decoder, 1, __func__, &b[27], 32, "LastConsumptionCount %d", LastConsumptionCount);
+    decoder_logf_bitrow(decoder, 1, __func__, &b[27], 32, "LastConsumptionCount %ld", LastConsumptionCount);
 
     // DifferentialConsumptionIntervals : 47 intervals of 9-bit unsigned integers
     decoder_log_bitrow(decoder, 2, __func__, &b[31], 423, "DifferentialConsumptionIntervals");
@@ -232,7 +232,7 @@ static int ert_idm_decode(r_device *decoder, bitbuffer_t *bitbuffer)
     if (decoder_verbose(decoder) > 1) {
         decoder_log(decoder, 2, __func__, "DifferentialConsumptionIntervals");
         for (int j = 0; j < 47; j++) {
-            decoder_logf(decoder, 2, __func__, "%d", DifferentialConsumptionIntervals[j]);
+            decoder_logf(decoder, 2, __func__, "%ld", DifferentialConsumptionIntervals[j]);
         }
     }
 
@@ -481,7 +481,7 @@ static int ert_netidm_decode(r_device *decoder, bitbuffer_t *bitbuffer)
 
     LastConsumptionCount = ((uint32_t)b[32] << 24) | (b[33] << 16) | (b[34] << 8) | (b[35]);
 
-    decoder_logf_bitrow(decoder, 1, __func__, &b[32], 32, "LastConsumptionCount %d", LastConsumptionCount);
+    decoder_logf_bitrow(decoder, 1, __func__, &b[32], 32, "LastConsumptionCount %ld", LastConsumptionCount);
 
     // DifferentialConsumptionIntervals[] = 27 intervals of 14-bit unsigned integers.
     unsigned pos = sync_index + (36 * 8);
@@ -497,7 +497,7 @@ static int ert_netidm_decode(r_device *decoder, bitbuffer_t *bitbuffer)
     if (decoder_verbose(decoder)) {
         decoder_log(decoder, 1, __func__, "DifferentialConsumptionIntervals");
         for (int j = 0; j < 27; j++) {
-            decoder_logf(decoder, 1, __func__, "%d", DifferentialConsumptionIntervals[j]);
+            decoder_logf(decoder, 1, __func__, "%ld", DifferentialConsumptionIntervals[j]);
         }
     }
 

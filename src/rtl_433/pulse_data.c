@@ -185,7 +185,7 @@ void pulse_data_dump(FILE *file, pulse_data_t const *data)
         chk_ret(fprintf(file, ";freq1 %.0f\n", data->freq1_hz));
     }
     chk_ret(fprintf(file, ";centerfreq %.0f Hz\n", data->centerfreq_hz));
-    chk_ret(fprintf(file, ";samplerate %u Hz\n", data->sample_rate));
+    chk_ret(fprintf(file, ";samplerate %lu Hz\n", data->sample_rate));
     chk_ret(fprintf(file, ";sampledepth %u bits\n", data->depth_bits));
     chk_ret(fprintf(file, ";range %.1f dB\n", data->range_db));
     chk_ret(fprintf(file, ";rssi %.1f dB\n", data->rssi_db));

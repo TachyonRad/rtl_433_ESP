@@ -172,7 +172,7 @@ static int ikea_sparsnas_decode(r_device *decoder, bitbuffer_t *bitbuffer)
         decoder_log(decoder, 2, __func__, "No sensor ID configured. Brute forcing encryption.");
         ikea_sparsnas_sensor_id = ikea_sparsnas_brute_force_encryption(buffer);
         if (ikea_sparsnas_sensor_id) {
-            decoder_logf(decoder, 2, __func__, "Found valid sensor ID %06u. If reported values does not make sense, this might be incorrect.", (uint16_t)ikea_sparsnas_sensor_id);
+            decoder_logf(decoder, 2, __func__, "Found valid sensor ID %06lu. If reported values does not make sense, this might be incorrect.", ikea_sparsnas_sensor_id);
         } else {
             decoder_log(decoder, 2, __func__, "No valid sensor ID found.");
         }
@@ -202,10 +202,10 @@ static int ikea_sparsnas_decode(r_device *decoder, bitbuffer_t *bitbuffer)
     decoder_logf(decoder, 2, __func__, "CRC OK (%X == %X)", crc_calculated, crc_received);
     decoder_logf(decoder, 2, __func__, "Encryption key: 0x%X%X%X%X%X", key[0], key[1], key[2], key[3], key[4]);
     decoder_log_bitrow(decoder, 2, __func__, decrypted, 18 * 8, "Decrypted");
-    decoder_logf(decoder, 2, __func__, "Received sensor id: %06u", (uint16_t)rcv_sensor_id);
+    decoder_logf(decoder, 2, __func__, "Received sensor id: %06lu", rcv_sensor_id);
 
     if (rcv_sensor_id != ikea_sparsnas_sensor_id) {
-        decoder_logf(decoder, 2, __func__, "Malformed package, or wrong sensor id. Received sensor id (%06u) not the same as sender (%d)", (uint16_t)rcv_sensor_id, ikea_sparsnas_sensor_id);
+        decoder_logf(decoder, 2, __func__, "Malformed package, or wrong sensor id. Received sensor id (%06lu) not the same as sender (%d)", rcv_sensor_id, ikea_sparsnas_sensor_id);
     }
 
     if ((!ikea_sparsnas_sensor_id) || (rcv_sensor_id != ikea_sparsnas_sensor_id)) {

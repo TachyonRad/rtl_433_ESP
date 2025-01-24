@@ -43,7 +43,7 @@ void list_push_all(list_t *list, void **p)
         list_push(list, *iter);
 }
 
-void list_remove(list_t *list, size_t idx, list_elem_free_fn elem_free)
+void list_removea(list_t *list, size_t idx, list_elem_free_fn elem_free)
 {
     if (idx >= list->len) {
         return; // report error?
@@ -57,7 +57,7 @@ void list_remove(list_t *list, size_t idx, list_elem_free_fn elem_free)
     list->len--;
 }
 
-void list_clear(list_t *list, list_elem_free_fn elem_free)
+void list_cleara(list_t *list, list_elem_free_fn elem_free)
 {
     if (elem_free) {
         for (size_t i = 0; i < list->len; ++i) { // list might contain NULLs

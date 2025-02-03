@@ -9,7 +9,7 @@
 #define RF_MODULE_MISO 36
 #define RF_MODULE_SCK 37
 
-// Uncomment below to enable FSK
+// Uncomment 2 lines below to enable FSK
 //#define OOK_MODULATION false
 //#define setBitrate
 

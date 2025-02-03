@@ -38,6 +38,7 @@ void setup() {
   rf.enableReceiver();
   rf.setBitRate(BITRATE);
   rf.setFrequencyDeviation(FREQUENCY_DEVIATION);
+  rf.receiveDirect();
   Serial.println("****** setup complete ******");
   rf.getModuleStatus(); // Prints module status to Serial (optional)
   

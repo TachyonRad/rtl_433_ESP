@@ -9,6 +9,11 @@
 #define RF_MODULE_MISO 36
 #define RF_MODULE_SCK 37
 
+// Uncomment below to enable FSK
+//#define OOK_MODULATION false
+//#define setBitrate
+
+
 // System Options
 #define RF_SX1278 "SX1278"
 #define RSSI_THRESHOLD 5
